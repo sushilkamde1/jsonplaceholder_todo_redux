@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
+import React from "react";
+import Store from "./Store/Store";
+import { Provider } from "react-redux";
+import UserContainer from "./Components/UserContainer";
+import UserInfo from "./Components/UserInfo";
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={Store}>
+      <div className="container">
+        {/* todos */}
+        <div className="users">
+          <UserContainer />
+        </div>
+        {/* User details  */}
+        <div className="user">
+          <UserInfo />
+        </div>
+      </div>
+    </Provider>
   );
-}
-
+};
 export default App;
